@@ -23,6 +23,7 @@ public class SongCacheImpl implements SongCache{
         try {
             lock.lock();
             map.put(songId, numPlays);
+            System.out.println(songId+" with played number "+numPlays+" has been stored");
         } finally {
             lock.unlock();
         }
@@ -54,7 +55,7 @@ public class SongCacheImpl implements SongCache{
         if(n <= 0){
             return res;
         }
-        PriorityQueue<String> q = new PriorityQueue<>((s1, s2)->map.get(s1)-map.get(s2));
+        PriorityQueue<String> q = new PriorityQueue<>((s1, s2)->map.get(s2)-map.get(s1));
         for(String id : map.keySet()){
             q.offer(id);
         }
@@ -62,5 +63,23 @@ public class SongCacheImpl implements SongCache{
             res.add(q.poll());
         }
         return res;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        SongCacheImpl s = new SongCacheImpl();
+        Thread t1 = new Thread(()->{
+            s.recordSongPlays("new song1", 10);
+            s.recordSongPlays("new song2", 15);
+            s.recordSongPlays("new song3", 5);
+
+        });
+        Thread t2 = new Thread(()->{
+            System.out.println(s.getPlaysForSong("new song2"));
+            System.out.println(s.getTopSongsPlayed(2));
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
     }
 }
