@@ -3,12 +3,15 @@ package com.example.assignment4.service;
 import com.example.assignment4.dao.AuthorBookDao;
 import com.example.assignment4.dao.AuthorDao;
 import com.example.assignment4.dao.BookDao;
+import com.example.assignment4.dto.ResDto;
 import com.example.assignment4.entity.Author;
 import com.example.assignment4.entity.AuthorBook;
 import com.example.assignment4.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class AuthorService {
@@ -28,7 +31,7 @@ public class AuthorService {
     }
 
     @Transactional
-    public Author getAuthorWithBook(Integer authorId){
+    public List<ResDto> getAuthorWithBook(Integer authorId){
         return authorDao.findAuthorWithBook(authorId);
     }
 

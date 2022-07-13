@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 import java.util.List;
 
+//https://www.baeldung.com/persistence-layer-with-spring-and-hibernate
 public abstract class AbstractHibernateDao<T extends Serializable> {
 
     @Autowired

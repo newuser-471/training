@@ -1,5 +1,6 @@
 package com.example.assignment4.controller;
 
+import com.example.assignment4.dto.ResDto;
 import com.example.assignment4.entity.Author;
 import com.example.assignment4.entity.AuthorBook;
 import com.example.assignment4.entity.Book;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -29,8 +32,8 @@ public class AllController {
         return new ResponseEntity<>(bookService.addNewBook(book), HttpStatus.OK);
     }
 
-    @GetMapping("/getAuthor")
-    public ResponseEntity<Author> getOneAuthor(@RequestParam(name = "id")Integer authorId){
+    @GetMapping("/getRes")
+    public ResponseEntity<List<ResDto>> getOneAuthor(@RequestParam(name = "id")Integer authorId){
         return new ResponseEntity<>(authorService.getAuthorWithBook(authorId),HttpStatus.OK);
     }
 
