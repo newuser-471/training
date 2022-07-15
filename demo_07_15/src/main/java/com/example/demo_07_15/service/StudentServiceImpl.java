@@ -26,6 +26,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    @Transactional
     public CommonResponse getAllStudents() {
         CommonResponse response = new CommonResponse();
         List<StudentResponseDTO> studentResponseDTOS = studentRepository.getAllStudents().stream().map(s -> new StudentResponseDTO(s)).collect(Collectors.toList());
@@ -34,6 +35,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    @Transactional
     public CommonResponse getStudentById(String id) {
 
         CommonResponse response = new CommonResponse();
@@ -47,6 +49,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    @Transactional
     public CommonResponse updateStudent(Student student) {
         CommonResponse response = new CommonResponse();
         Student stu = studentRepository.updateStudent(student);
@@ -58,6 +61,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    @Transactional
     public String deleteStudentById(String id) {
         Student stu = studentRepository.deleteStudentById(id);
         if(stu==null){

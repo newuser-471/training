@@ -7,15 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 public interface StudentService {
-    @Transactional
+
     CommonResponse getAllStudents();
 
-    @Transactional
     CommonResponse getStudentById(String id);
 
-    @Transactional
     CommonResponse updateStudent(Student student);
 
-    @Transactional
     String deleteStudentById(String id);
 }
