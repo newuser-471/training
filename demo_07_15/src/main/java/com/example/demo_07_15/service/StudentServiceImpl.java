@@ -2,6 +2,7 @@ package com.example.demo_07_15.service;
 
 import com.example.demo_07_15.domain.CommonResponse;
 import com.example.demo_07_15.domain.Student;
+import com.example.demo_07_15.domain.StudentDTO;
 import com.example.demo_07_15.domain.StudentResponseDTO;
 import com.example.demo_07_15.exception.ResourceNotFoundException;
 import com.example.demo_07_15.repository.StudentRepository;
@@ -57,6 +58,14 @@ public class StudentServiceImpl implements StudentService{
             throw new ResourceNotFoundException(student.getId() + "does not exist, update failed");
         }
         response.setData(new StudentResponseDTO(student));
+        return response;
+    }
+
+    @Override
+    public CommonResponse createStudent(StudentDTO dto) {
+        CommonResponse response = new CommonResponse();
+        Student stu = studentRepository.addStudent(dto);
+        response.setData(new StudentResponseDTO(stu));
         return response;
     }
 

@@ -1,6 +1,7 @@
 package com.example.demo_07_15.repository;
 
 import com.example.demo_07_15.domain.Student;
+import com.example.demo_07_15.domain.StudentDTO;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -29,6 +30,13 @@ public class StudentRepositoryImpl implements StudentRepository{
     @Override
     public Student getStudentById(String id) {
         return studentMap.get(id);
+    }
+
+    @Override
+    public Student addStudent(StudentDTO dto) {
+        Student stu = new Student(studentMap.size()+1+"", dto.getName(), false);
+        studentMap.put(studentMap.size()+1+"",stu);
+        return stu;
     }
 
     @Override

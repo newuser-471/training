@@ -3,6 +3,7 @@ package com.example.demo_07_15.controller;
 import com.example.demo_07_15.domain.CommonResponse;
 import com.example.demo_07_15.domain.ErrorResponse;
 import com.example.demo_07_15.domain.Student;
+import com.example.demo_07_15.domain.StudentDTO;
 import com.example.demo_07_15.exception.ResourceNotFoundException;
 import com.example.demo_07_15.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class StudentController {
     @GetMapping("/students/{id}")
     public ResponseEntity<CommonResponse> getStudentById(@PathVariable String id) {
         return new ResponseEntity<>(studentService.getStudentById(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/students")
+    public ResponseEntity<CommonResponse> addStudent(@RequestBody StudentDTO student){
+        return new ResponseEntity<>(studentService.createStudent(student), HttpStatus.OK);
     }
 
     @PutMapping("/students")
