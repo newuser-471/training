@@ -27,7 +27,6 @@ public class Author implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<AuthorBook> authorBookList = new ArrayList<>();
 

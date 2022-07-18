@@ -34,4 +34,9 @@ public class AuthorDao extends AbstractHibernateDao<Author>{
     public Author findAuthorById(Integer id) {
         return findById(id);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        super.deleteById(id);
+    }
 }

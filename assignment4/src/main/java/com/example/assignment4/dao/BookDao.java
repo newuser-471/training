@@ -22,4 +22,8 @@ public class BookDao extends AbstractHibernateDao<Book> {
         return merge(entity);
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        super.deleteById(id);
+    }
 }

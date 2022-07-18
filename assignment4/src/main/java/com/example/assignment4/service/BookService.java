@@ -1,24 +1,15 @@
 package com.example.assignment4.service;
 
-import com.example.assignment4.dao.BookDao;
+import com.example.assignment4.dto.CommonResponse;
 import com.example.assignment4.entity.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Service
-public class BookService {
+public interface BookService {
 
-    @Autowired
-    private BookDao bookDao;
+    CommonResponse addNewBook(Book book);
 
-    @Transactional
-    public Book addNewBook(Book book){
-        return bookDao.addBook(book);
-    }
+    CommonResponse getAllBooks();
 
-    @Transactional
-    public Book getBookById(Integer id){
-        return bookDao.findBookById(id);
-    }
+    CommonResponse getBookById(Integer id);
+
+    CommonResponse deleteBookById(Integer id);
 }

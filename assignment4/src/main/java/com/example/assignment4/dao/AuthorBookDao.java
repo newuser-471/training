@@ -22,7 +22,7 @@ public class AuthorBookDao extends AbstractHibernateDao<AuthorBook> {
     }
 
     public AuthorBook findPairById(Integer id) {
-        return findById(id);
+        return super.findById(id);
     }
 
     public AuthorBook updatePair(AuthorBook entity) {
