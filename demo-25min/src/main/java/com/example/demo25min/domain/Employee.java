@@ -12,19 +12,19 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Employee{
 
-    @JsonProperty("Id")
+    @JsonProperty("id")
     private int id;
 
-    @JsonProperty("EmployeeName")
+    @JsonProperty("employee_name")
     private String name;
 
-    @JsonProperty("EmployeeSalary")
+    @JsonProperty("employee_salary")
     private int salary;
 
-    @JsonProperty("EmployeeAge")
+    @JsonProperty("employee_age")
     private int age;
 
-    @JsonProperty("ProfileImage")
+    @JsonProperty("profile_image")
     private String image;
 
 }
