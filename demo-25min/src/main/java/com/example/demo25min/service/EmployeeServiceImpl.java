@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
+    private final String url = "https://dummy.restapiexample.com/api/v1/employees";
+
     private RestTemplate restTemplate;
 
     @Autowired
     public EmployeeServiceImpl(RestTemplate restTemplate){
         this.restTemplate = restTemplate;
     }
-
-    private final String url = "https://dummy.restapiexample.com/api/v1/employees";
 
     @Override
     public CommonResponse getAllEmployee() {

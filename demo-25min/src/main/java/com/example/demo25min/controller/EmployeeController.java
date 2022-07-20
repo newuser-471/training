@@ -31,8 +31,8 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.getAllEmployee(), HttpStatus.OK);
     }
 
-    @GetMapping("/older")
-    public ResponseEntity<CommonResponse> getEmployeeWithAgeAbove(@RequestParam("age")Integer age){
+    @GetMapping(value = "/",params = "age")
+    public ResponseEntity<CommonResponse> getEmployeeWithAgeAbove(@RequestParam Integer age){
         return new ResponseEntity<>(employeeService.getEmployeeOlderThan(age),HttpStatus.OK);
     }
 }
