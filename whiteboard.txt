@@ -1,0 +1,56 @@
+public final class Singleton{
+    private static final Singleton instance;
+    private Singleton(){
+
+    }
+
+    public static Singleton getInstance(){
+        if(instance==null){
+            synchronized(Singleton.class){
+                if(instance == null){
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+public class Test{
+    public String kthfrequency(List<String> strs, int k){
+        Map<String, Integer> map = new HashMap<>();
+        for(String str : strs){
+            map.put(str, map.getOrDefault(str, 0)+1);
+        }
+        Stirng res = "";
+        for(String str : map.keySet()){
+            if(map.get(str)==k){
+                res = str;
+            }
+        }
+        return res;
+    }
+
+    public int ifendif(String str){
+        StringBuffer sb = new StringBuffer();
+        for(char c : str){
+            sb.append(c);
+            if(c=='f'){
+                sb.append(" ");
+            }
+        }
+        String[] strs = sb.toString().split(" ");
+        int cnt = 0;
+        int max = 0;
+        for(int i= 0;i<strs.length;i++){
+            if(strs[i]=="if"){
+                cnt++;
+            }else if(strs[i]=="endif"){
+                cnt--;
+            }
+            max = Math.max(max, cnt);
+        }
+        return max;
+
+    }
+}
