@@ -14,6 +14,7 @@
         <module>discovery</module>
         <module>gateway</module>
         <module>search</module>
+        <module>demo</module>
     </modules>
 
     <groupId>com.example</groupId>
@@ -24,7 +25,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
